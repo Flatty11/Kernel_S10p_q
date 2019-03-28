@@ -10719,7 +10719,8 @@ static int ufshcd_config_vreg(struct device *dev,
 		if (ret) {
 			dev_err(dev, "%s: %s set voltage failed, err=%d\n",
 					__func__, name, ret);
-			goto out;
+				goto out;
+			}
 		}
 	}
 out:
