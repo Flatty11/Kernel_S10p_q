@@ -735,7 +735,8 @@ out_sem:
 		    !(flags & EXT4_GET_BLOCKS_IO_SUBMIT)) {
 #if 0
 			if (flags & EXT4_GET_BLOCKS_IO_SUBMIT)
-				ret = ext4_jbd2_inode_add_wait(handle, inode);
+				ret = ext4_jbd2_inode_add_wait(handle, inode,
+						start_byte, length);
 			else
 #endif
 				ret = ext4_jbd2_inode_add_write(handle, inode);
@@ -4099,7 +4100,8 @@ static int __ext4_block_zero_page_range(handle_t *handle,
 		err = 0;
 		mark_buffer_dirty(bh);
 		if (ext4_should_order_data(inode))
-			err = ext4_jbd2_inode_add_write(handle, inode);
+			err = ext4_jbd2_inode_add_write(handle, inode, from,
+					length);
 	}
 
 unlock:
