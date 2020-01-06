@@ -10722,7 +10722,6 @@ static int ufshcd_config_vreg(struct device *dev,
 				goto out;
 			}
 		}
-	}
 out:
 	return ret;
 }
