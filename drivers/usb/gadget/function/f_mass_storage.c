@@ -2702,7 +2702,6 @@ reset:
 static int fsg_set_alt(struct usb_function *f, unsigned intf, unsigned alt)
 {
 	struct fsg_dev *fsg = fsg_from_func(f);
-	fsg->common->new_fsg = fsg;
 
 	/* prevents usb LPM until thread runs to completion */
 	usb_gadget_autopm_get_async(fsg->common->gadget);
